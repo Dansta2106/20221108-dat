@@ -1,1 +1,79 @@
-<p>player-search works!</p>
+<!-- <p>player-search works!</p> -->
+
+<div class="card">
+
+    <div class="card-header">
+        <h2 class="card-title">Player Search</h2>
+    </div>
+
+    <div class="card-body">
+
+         <form>
+             <div class="form-group">
+                 <label>Name:</label>
+                 <input [(ngModel)]="name" name="name" class="form-control">
+             </div>
+             <!-- <div class="form-group">
+                 <label>To:</label>
+                 <input [(ngModel)]="to" name="to" class="form-control">
+             </div> -->
+
+             <div class="form-group">
+             <button
+                 [disabled]="!name"
+                 (click)="search()"
+                 class="btn btn-default">
+                 Search
+                 </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+<div class="card" *ngIf="players.length">
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Adresse</th>
+                <th>Citizenship</th>
+                <th>Elo</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of players"
+                [class.table-active]="p === selectedPlayer">
+                <td>
+                    <span class="badge badge-pill badge-info">
+                        {{ p.id }}
+                    </span>
+                </td>
+                <td>{{ p.name }}</td>
+                <td>{{ p.address }}</td>
+                <td>{{ p.citizenship }}</td>
+                <td>{{ p.elo }}</td>
+                <td>
+                    <button
+                        (click)="select(p)"
+                        class="btn btn-info btn-sm"
+                        style="min-width: 85px">
+                        Select
+                    </button>
+                </td>
+            </tr>
+        <tbody>
+    </table>
+
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <pre>{{ selectedPlayer | json }}</pre>
+    </div>
+</div>
+
