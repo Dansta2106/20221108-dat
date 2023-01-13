@@ -6,6 +6,8 @@ module.exports = function(){
             return {
                 id: n,
                 name: faker.name.findName(),
+                address:  faker.address.city() + faker.address.streetAddress(),
+                citzenship: faker.address.country(),
                 elo: faker.random.number(4000)
             }
         })
