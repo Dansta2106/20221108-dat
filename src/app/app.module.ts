@@ -9,11 +9,13 @@ import { AppComponent } from './app.component';
 import { PlayerSearchComponent } from './player-search/player-search.component';
 import { MatchSearchComponent } from './match-search/match-search.component';
 import { LocationSearchComponent } from './location-search/location-search.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,
