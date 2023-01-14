@@ -1,1 +1,64 @@
-<p>location-search works!</p>
+<div class ="card">
+    <div class="card-header">
+        <h2 class = "card-title">Location Search</h2>
+    </div>
+
+    <div class = "card-body">
+        <form>
+            <div class="form-group">
+                <label>Event-Name:</label>
+                <input [(ngModel)]="event-name" name="event-name" class = "form-control">
+            </div>
+            <div class="form-group">
+                <label>City:</label>
+                <input [(ngModel)]="city" name="city" class = "form-control">
+            </div>
+            <div class="form-group">
+                <label>Country:</label>
+                <input [(ngModel)]="country" name="country" class = "form-control">
+            </div>
+            <div class="form-group">
+                <button [disabled] = "!event-name & !city & !country" class = "btn btn-default" click = "search()">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class = "card">
+    <table class = "table table-condensed">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>City</th>
+                <th>Plz</th>
+                <th>Country</th>
+                <th>Event-name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let l of locations" [class.table-active]="l ===selectedLocation">
+                <td>
+                    <span class ="badge badge-pill badge-info">
+                        {{l.id}}
+                    </span>
+                </td>
+                <td>{{l.city}}</td>
+                <td>{{l.plz}}</td>
+                <td>{{l.country}}</td>
+                <td>{{l.event_name}}</td>
+                <td>
+                    <button (click)="select(l)" class = "btn btn-info btn-sm" style ="min-width: 85px">
+                    Select
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class = "card">
+    <div class ="card-body">
+        <pre>{{selectedLocation | json}}</pre>
+    </div>
+</div>
