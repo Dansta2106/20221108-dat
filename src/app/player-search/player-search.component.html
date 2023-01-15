@@ -77,3 +77,48 @@
     </div>
 </div>
 
+<div class="card" *ngIf="selectedPlayer">
+    <div class="card-header">
+      <h2 class="card-title">Player Add</h2>
+    </div>
+    <div class="card-body">
+
+      <div>
+          {{ message }}
+      </div>
+
+      <form>
+        <div class="form-group">
+            <label>Id</label>
+            <input [(ngModel)]="selectedPlayer!.id" name="id" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Name</label>
+            <input [(ngModel)]="selectedPlayer!.name" name="name" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Adresse</label>
+            <input [(ngModel)]="selectedPlayer!.address" name="address" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Citizenship</label>
+            <input [(ngModel)]="selectedPlayer!.citizenship" name="citizenship" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Elo</label>
+            <input [(ngModel)]="selectedPlayer!.elo" name="elo" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <button (click)="save()" class="btn btn-default">Save</button>
+        </div>
+
+    </form>
+
+    </div>
+  </div>
+

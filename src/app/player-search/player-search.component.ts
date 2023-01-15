@@ -9,6 +9,7 @@ import { Player } from '../entities/player';
 })
 export class PlayerSearchComponent implements OnInit {
 
+  message = "";
   name = "";
   players: Array<Player> = [];
   selectedPlayer : Player | undefined;
@@ -49,5 +50,29 @@ export class PlayerSearchComponent implements OnInit {
     const url = 
     this.selectedPlayer = p;
   }
+
+  save(): void {
+
+    if (!this.selectedPlayer) return;
+
+    const url = 'http://localhost:3000/player';
+
+    const headers = new HttpHeaders()
+        .set('Accept', 'application/json');
+
+    this.http
+        .post<Player>(url, this.selectedPlayer, { headers })
+        .subscribe({
+            next: (player) => {
+                this.selectedPlayer = player;
+                this.message = 'Update successful!';
+            },
+            error: (errResponse) => {
+                this.message = 'Error on updating the Player (post)';
+                console.error(this.message, errResponse);
+
+            }
+        });
+}
 
 }
