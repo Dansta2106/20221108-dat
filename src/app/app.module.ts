@@ -21,7 +21,6 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    //FlightSearchComponent,
     PlayerSearchComponent,
     MatchSearchComponent,
     LocationSearchComponent
