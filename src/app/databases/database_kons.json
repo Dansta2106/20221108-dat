@@ -8,13 +8,6 @@
       "plz": 59311
     },
     {
-      "id": 1,
-      "city": "Redwood City",
-      "event_name": "optical",
-      "country": "Tanzania",
-      "plz": 4397
-    },
-    {
       "id": 2,
       "city": "Wyattview",
       "event_name": "virtual",
@@ -720,6 +713,20 @@
       "event_name": "Stadthalle",
       "country": "Austria",
       "plz": "8020"
+    },
+    {
+      "id": "103",
+      "city": "Graz",
+      "event_name": "parsing",
+      "country": "Mauritania",
+      "plz": 59311
+    },
+    {
+      "id": "200",
+      "city": "Graz",
+      "event_name": "optical",
+      "country": "Austria",
+      "plz": "1080"
     }
   ],
   "player": [

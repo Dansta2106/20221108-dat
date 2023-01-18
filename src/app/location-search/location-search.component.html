@@ -60,11 +60,30 @@
                 <td>{{l.country }}</td>
                 <td>
                     <button
-                        (click)="select(l)"
-                        class="btn btn-info btn-sm"
-                        style="min-width: 85px">
-                        Select
-                    </button>
+                    (click)="selectAdd(l)"
+                    (click)="select(l)"
+                    class="btn btn-info btn-sm"
+                    style="min-width: 85px">
+                    Add
+                </button>
+                    <br>
+                    <br>
+                    <button
+                    (click)="selectEdit(l)"
+                    (click)="select(l)"
+                    class="btn btn-info btn-sm"
+                    style="min-width: 85px">
+                    Edit
+                </button>
+                <br>
+                <br>
+                    <button
+                    (click)="select(l)"
+                    (click)="delete()"
+                    class="btn btn-info btn-sm"
+                    style="min-width: 85px">
+                    Delete
+                </button>
                 </td>
             </tr>
         <tbody>
@@ -79,7 +98,7 @@
     </div>
 </div>
 
-<div class="card" *ngIf="selectedLocation">
+<div class="card" *ngIf="selectedLocationAdd">
     <div class ="card-header">
         <h2 class="card-title">Location Add</h2>
     </div>
@@ -115,7 +134,7 @@
     </div>
 </div>
 
-<div class="card" *ngIf="selectedLocation">
+<div class="card" *ngIf="selectedLocationEdit">
     <div class ="card-header">
         <h2 class="card-title">Location Edit</h2>
     </div>

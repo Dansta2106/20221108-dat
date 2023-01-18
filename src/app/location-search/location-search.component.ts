@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '../entities/location';
+import { LocationService } from './location-search/location.service';
 
 @Component({
   selector: 'app-location-search',
@@ -14,8 +15,10 @@ export class LocationSearchComponent implements OnInit {
   country = "";
   locations: Array<Location> = [];
   selectedLocation: Location | undefined;
+  selectedLocationAdd: Location | undefined;
+  selectedLocationEdit: Location | undefined;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private locationService: LocationService) { 
 
   }
 
@@ -23,29 +26,16 @@ export class LocationSearchComponent implements OnInit {
   }
 
   search(): void {
-
-    const url = 'http://localhost:3000/location';
-
-    const headers = new HttpHeaders()
-        .set('Accept', 'application/json');
-
-    const params = new HttpParams()
-        .set("country", this.country)
-        .set("city", this.city)
-        .set('event_name', this.event_name);
-
-    this.http
-        .get<Location[]>(url, {headers, params})
-        .subscribe({
-            next: (locations: Location[]) => {
-                this.locations = locations;
-            },
-            error: (errResp) => {
-                console.error('Error loading locations', errResp);
-            }
-        });
-
-
+    this.locationService
+      .find(this.country, this.city, this.event_name)
+      .subscribe({
+        next: (locations) => {
+          this.locations = locations;
+        },
+        error: (errResp) => {
+          console.error('Error loading locations', errResp);
+      }
+    });
   }
 
   select(l: Location): void {
@@ -53,46 +43,60 @@ export class LocationSearchComponent implements OnInit {
     this.selectedLocation = l;
   }
 
+  selectAdd(l: Location): void {
+    const url =
+    this.selectedLocationEdit = undefined;
+    this.selectedLocationAdd = l;
+  }
+
+  selectEdit(l: Location): void {
+    const url =
+    this.selectedLocationAdd = undefined;
+    this.selectedLocationEdit = l;
+  }
+
   save(): void {
     if (!this.selectedLocation) return;
 
-    const url = 'http://localhost:3000/location';
-
-    const headers = new HttpHeaders().set("Accept", "application/json");
-
-    this.http
-      .post<Location>(url, this.selectedLocation, { headers })
+    this.locationService
+      .save(this.selectedLocation)
       .subscribe({
-        next: (location) => {
-          this.selectedLocation = location;
-          this.message = "Added successfully!";
+        next: (locations) => {
+          this.message = "Added location succesfully"
+          this.selectedLocation = locations;
         },
-        error: (errResponse) => {
-          this.message = "Error on adding the Location";
-          console.error(this.message, errResponse);
-         }
+        error: (errResp) => {
+          console.error('Error adding locations', errResp);
+      }
     });
   }
-
   update(): void {
     if (!this.selectedLocation) return;
 
-    const url = 'http://localhost:3000/location';
-
-    const headers = new HttpHeaders().set("Accept", "application/json");
-
-    this.http
-      .put<Location>(url, this.selectedLocation, { headers })
+    this.locationService
+      .update(this.selectedLocation)
       .subscribe({
-        next: (location) => {
-          this.selectedLocation = location;
-          this.message = "Update successful!";
+        next: (locations) => {
+          this.message = "Edited location succesfully"
+          this.selectedLocation = locations;
         },
-        error: (errResponse) => {
-          this.message = "Error on updating the Location";
-          console.error(this.message, errResponse);
-         }
+        error: (errResp) => {
+          console.error('Error editing locations', errResp);
+      }
     });
   }
+  delete(): void {
+    if (!this.selectedLocation) return;
 
-}
+    this.locationService
+      .delete(this.selectedLocation)
+      .subscribe({
+        next: (locations) => {
+          this.message = "Deleted location succesfully";
+        },
+        error: (errResp) => {
+          console.error('Error editing locations', errResp);
+      }
+    });
+  }
+};
