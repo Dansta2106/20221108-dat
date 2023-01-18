@@ -25,6 +25,18 @@
                  class="btn btn-default">
                  Search
                  </button>
+            <!-- <button
+                 [disabled]="!name"
+                 (click)="delete()"
+                 class="btn btn-default">
+                 Delete
+                </button> -->             
+            <button
+                [disabled]="!name"
+                (click)="update()"
+                class="btn btn-default">
+                Update
+               </button>           
             </div>
         </form>
 
@@ -63,6 +75,12 @@
                         class="btn btn-info btn-sm"
                         style="min-width: 85px">
                         Select
+                    </button>
+                    <button
+                        (click)="delete()"
+                        class="btn btn-info btn-sm"
+                        style="min-width: 85px">
+                        Delete
                     </button>
                 </td>
             </tr>

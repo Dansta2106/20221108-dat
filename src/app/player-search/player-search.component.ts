@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../entities/player';
+import { PlayerService } from './player-search/player.service';
 
 @Component({
   selector: 'app-player-search',
@@ -14,7 +15,7 @@ export class PlayerSearchComponent implements OnInit {
   players: Array<Player> = [];
   selectedPlayer : Player | undefined;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private playerService: PlayerService) { 
 
   }
 
@@ -22,29 +23,18 @@ export class PlayerSearchComponent implements OnInit {
   }
 
   search(): void {
-
-    const url = 'http://localhost:3000/player';
-
-    const headers = new HttpHeaders()
-        .set('Accept', 'application/json');
-
-    const params = new HttpParams()
-       // .set('from', this.from)
-        .set('name', this.name);
-
-    this.http
-        .get<Player[]>(url, {headers, params})
-        .subscribe({
-            next: (players: Player[]) => {
-                this.players = players;
-            },
-            error: (errResp) => {
-                console.error('Error loading players', errResp);
-            }
-        });  
-        
-
+    this.playerService
+      .find(this.name)
+      .subscribe({
+        next: (players) => {
+          this.players = players;
+        },
+        error: (errResp) => {
+          console.error('Error loading players', errResp);
+      }
+    });
   }
+  
 
   select(p: Player): void {
     const url = 
@@ -75,4 +65,28 @@ export class PlayerSearchComponent implements OnInit {
         });
 }
 
+delete(): void {
+    if (!this.selectedPlayer) return;
+
+    this.http.delete('http://localhost:3000/player/'+ this.selectedPlayer.id)
+        .subscribe(() => this.message = 'Delete successful');
+  }
+
+
+
+update(): void {
+    if (!this.selectedPlayer) return;
+
+    this.playerService
+      .update(this.selectedPlayer)
+      .subscribe({
+        next: (players) => {
+          this.message = "Edited player succesfully"
+          this.selectedPlayer = players;
+        },
+        error: (errResp) => {
+          console.error('Error editing players', errResp);
+      }
+    });
+  }
 }
