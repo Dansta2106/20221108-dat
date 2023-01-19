@@ -1,25 +1,11 @@
 {
   "location": [
     {
-      "id": 0,
-      "city": "Willmsberg",
-      "event_name": "parsing",
-      "country": "Mauritania",
-      "plz": 59311
-    },
-    {
       "id": 2,
       "city": "Wyattview",
       "event_name": "virtual",
       "country": "Chad",
       "plz": 65207
-    },
-    {
-      "id": 3,
-      "city": "Lake Amara",
-      "event_name": "Concrete",
-      "country": "Croatia",
-      "plz": 17603
     },
     {
       "id": 4,
@@ -727,30 +713,16 @@
       "event_name": "optical",
       "country": "Austria",
       "plz": "1080"
+    },
+    {
+      "id": "3333",
+      "city": "Lake Amara",
+      "event_name": "Concrete",
+      "country": "Croatia",
+      "plz": 17603
     }
   ],
   "player": [
-    {
-      "id": 0,
-      "name": "Ruben Runolfsdottir",
-      "address": "Hoffman Estates873 Keyshawn Cliff",
-      "citizenship": "Somalia",
-      "elo": 2632
-    },
-    {
-      "id": 1,
-      "name": "Levi Kuvalis",
-      "address": "Buckeye667 Erwin Road",
-      "citizenship": "Thailand",
-      "elo": 2713
-    },
-    {
-      "id": 2,
-      "name": "Jennie Huels",
-      "address": "Lake Terrellburgh145 Liam Garden",
-      "citizenship": "Canada",
-      "elo": 954
-    },
     {
       "id": 3,
       "name": "Ruben Leffler V",
@@ -759,53 +731,11 @@
       "elo": 253
     },
     {
-      "id": 4,
-      "name": "Elaine Durgan",
-      "address": "North Juanitabury227 Kemmer Island",
-      "citizenship": "Norway",
-      "elo": 3383
-    },
-    {
-      "id": 5,
-      "name": "Mr. Levi Swaniawski",
-      "address": "Colemanport165 Edyth Skyway",
-      "citizenship": "Italy",
-      "elo": 1727
-    },
-    {
       "id": 6,
       "name": "Ms. Ismael Hoeger",
       "address": "Henderson58262 Maurine Row",
       "citizenship": "Ukraine",
       "elo": 1765
-    },
-    {
-      "id": 7,
-      "name": "Mitchell Barrows",
-      "address": "Port Reymundo68565 Wiza Tunnel",
-      "citizenship": "Micronesia",
-      "elo": 14
-    },
-    {
-      "id": 8,
-      "name": "Sabrina Hartmann II",
-      "address": "North Emeraldbury9612 Hilpert Freeway",
-      "citizenship": "Norfolk Island",
-      "elo": 2637
-    },
-    {
-      "id": 9,
-      "name": "Gina Boyle",
-      "address": "Lake Silas7629 Monique Harbor",
-      "citizenship": "Sao Tome and Principe",
-      "elo": 1518
-    },
-    {
-      "id": 10,
-      "name": "Lydia Vandervort",
-      "address": "Port Georgiannaview3237 Hills Squares",
-      "citizenship": "Virgin Islands, British",
-      "elo": 2061
     },
     {
       "id": 11,
@@ -1436,6 +1366,34 @@
       "address": "Hoffman Estates873 Keyshawn Cliff",
       "citizenship": "Somalia",
       "elo": 2632
+    },
+    {
+      "id": "7888",
+      "name": "Mitchell Barrows",
+      "address": "Port Reymundo68565 Wiza Tunnel",
+      "citizenship": "Graz",
+      "elo": 14
+    },
+    {
+      "id": "9999",
+      "name": "Gina Boyle Junior",
+      "address": "Lake Silas7629 Monique Harbor",
+      "citizenship": "Sao Tome and Principe",
+      "elo": 1518
+    },
+    {
+      "id": "997",
+      "name": "Gina Boyle",
+      "address": "Lake Silas7629 Monique Harbor",
+      "citizenship": "Sao Tome and Principe",
+      "elo": "2000"
+    },
+    {
+      "id": "888",
+      "name": "Sabrina Hartmann II",
+      "address": "North Emeraldbury9612 Hilpert Freeway",
+      "citizenship": "Norfolk Island",
+      "elo": 2637
     }
   ]
 }

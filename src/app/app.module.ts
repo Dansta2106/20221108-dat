@@ -6,24 +6,31 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 //import { FlightSearchComponent } from './flight-search/flight-search.component';
-import { PlayerSearchComponent } from './player-search/player-search.component';
-import { MatchSearchComponent } from './match-search/match-search.component';
-import { LocationSearchComponent } from './location-search/location-search.component';
+// import { PlayerSearchComponent } from './player-search/player-search.component';
+// import { MatchSearchComponent } from './match-search/match-search.component';
+// import { LocationSearchComponent } from './location-search/location-search.component';
 import { FormsModule } from '@angular/forms';
+import { TournamentCreatingModule } from './tournament-creating/tournament-creating.module';
+import { HomeComponent } from './home/home.component';
+import { APP_ROUTES } from './app.routes';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    TournamentCreatingModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
   declarations: [
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    PlayerSearchComponent,
-    MatchSearchComponent,
-    LocationSearchComponent
+    HomeComponent,
+    // PlayerSearchComponent,
+    // MatchSearchComponent,
+    // LocationSearchComponent
   ],
   providers: [],
   bootstrap: [

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Player } from 'src/app/entities/player';
+import { Player } from 'src/app/tournament-creating/entities/player';
 
 
 @Injectable({
@@ -51,7 +51,7 @@ delete(selectedPlayer: Player): Observable<Player> {
   const headers = new HttpHeaders()
     .set('Accept', 'application/json');
 
-  return this.http.delete<Player>(url + "/"+ selectedPlayer.id)
+  return this.http.delete<Player>(url + "/"+ selectedPlayer.id, {headers})
       // .subscribe(() => this.message = 'Delete successful');
 }
 

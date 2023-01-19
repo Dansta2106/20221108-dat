@@ -58,7 +58,7 @@
                         (click)="select(p)"
                         class="btn btn-info btn-sm"
                         style="min-width: 85px">
-                        Creat
+                        Create
                     </button>
                     <br><br>
                     <button
@@ -70,7 +70,7 @@
                 </button>
                     <br><br>
                     <button
-                        (click)="selectDelete(p)"
+                        (click)="select(p)"
                         (click)="delete()"
                         class="btn btn-info btn-sm"
                         style="min-width: 85px">
@@ -90,15 +90,19 @@
 </div> -->
 
 
+<div class="card" *ngIf="selectedPlayer">
+    <div class="card-body">
+        <div>
+           {{ message }}
+        </div>
+    </div>
+</div>
+
 <div class="card" *ngIf="selectedPlayerCreat">
     <div class="card-header">
-      <h2 class="card-title">Player Creat</h2>
+      <h2 class="card-title">Player Create</h2>
     </div>
     <div class="card-body">
-
-      <div>
-          {{ message }}
-      </div>
 
       <form>
         <div class="form-group">
@@ -141,10 +145,6 @@
     </div>
     <div class="card-body">
 
-      <div>
-          {{ message }}
-      </div>
-
       <form>
         <div class="form-group">
             <label>Id</label>
@@ -182,10 +182,4 @@
 
 
 
-  <div class="card" *ngIf="selectedPlayerDelete">
-    <div class="card-body">
-        <div>
-           {{ message }}
-        </div>
-    </div>
-</div>
+

@@ -16,9 +16,9 @@ export class PlayerSearchComponent implements OnInit {
   selectedPlayer: Player | undefined;
   selectedPlayerCreat: Player | undefined;
   selectedPlayerUpdate: Player | undefined;
-  selectedPlayerDelete: Player | undefined;
 
-  constructor(private http: HttpClient, private playerService: PlayerService) { 
+
+  constructor(private playerService: PlayerService) { 
 
   }
 
@@ -47,23 +47,15 @@ export class PlayerSearchComponent implements OnInit {
   selectCreat(p: Player): void {
     const url =
     this.selectedPlayerUpdate = undefined;
-    this.selectedPlayerDelete = undefined;
     this.selectedPlayerCreat = p;
   }
 
   selectUpdate(p: Player): void {
     const url =
     this.selectedPlayerCreat = undefined;
-    this.selectedPlayerDelete = undefined;
     this.selectedPlayerUpdate = p;
   }
 
-  selectDelete(p: Player): void {
-    const url =
-    this.selectedPlayerCreat = undefined;
-    this.selectedPlayerUpdate = undefined;
-    this.selectedPlayerDelete = p;
-  }
 
 
   save(): void {
