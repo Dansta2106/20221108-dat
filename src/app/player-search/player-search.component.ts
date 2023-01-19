@@ -13,7 +13,10 @@ export class PlayerSearchComponent implements OnInit {
   message = "";
   name = "";
   players: Array<Player> = [];
-  selectedPlayer : Player | undefined;
+  selectedPlayer: Player | undefined;
+  selectedPlayerCreat: Player | undefined;
+  selectedPlayerUpdate: Player | undefined;
+  selectedPlayerDelete: Player | undefined;
 
   constructor(private http: HttpClient, private playerService: PlayerService) { 
 
@@ -30,7 +33,7 @@ export class PlayerSearchComponent implements OnInit {
           this.players = players;
         },
         error: (errResp) => {
-          console.error('Error loading players', errResp);
+          console.error('Error getting players', errResp);
       }
     });
   }
@@ -41,36 +44,59 @@ export class PlayerSearchComponent implements OnInit {
     this.selectedPlayer = p;
   }
 
+  selectCreat(p: Player): void {
+    const url =
+    this.selectedPlayerUpdate = undefined;
+    this.selectedPlayerDelete = undefined;
+    this.selectedPlayerCreat = p;
+  }
+
+  selectUpdate(p: Player): void {
+    const url =
+    this.selectedPlayerCreat = undefined;
+    this.selectedPlayerDelete = undefined;
+    this.selectedPlayerUpdate = p;
+  }
+
+  selectDelete(p: Player): void {
+    const url =
+    this.selectedPlayerCreat = undefined;
+    this.selectedPlayerUpdate = undefined;
+    this.selectedPlayerDelete = p;
+  }
+
+
   save(): void {
 
     if (!this.selectedPlayer) return;
 
-    const url = 'http://localhost:3000/player';
-
-    const headers = new HttpHeaders()
-        .set('Accept', 'application/json');
-
-    this.http
-        .post<Player>(url, this.selectedPlayer, { headers })
-        .subscribe({
-            next: (player) => {
-                this.selectedPlayer = player;
-                this.message = 'Update successful!';
-            },
-            error: (errResponse) => {
-                this.message = 'Error on updating the Player (post)';
-                console.error(this.message, errResponse);
-
-            }
-        });
-}
+    this.playerService
+      .save(this.selectedPlayer)
+      .subscribe({
+        next: (players) => {
+          this.message = "Created player succesfully"
+          this.selectedPlayer = players;
+        },
+        error: (errResp) => {
+          console.error('Error creating players', errResp);
+      }
+    });
+  }
 
 delete(): void {
     if (!this.selectedPlayer) return;
 
-    this.http.delete('http://localhost:3000/player/'+ this.selectedPlayer.id)
-        .subscribe(() => this.message = 'Delete successful');
-  }
+    this.playerService.delete(this.selectedPlayer)
+        .subscribe({
+          next: (players) => {
+            this.message = "Deleted player succesfully";
+          },
+          error: (errResp) => {
+            console.error('Error deleting player', errResp);
+        }
+      });
+    
+    }
 
 
 
@@ -81,11 +107,11 @@ update(): void {
       .update(this.selectedPlayer)
       .subscribe({
         next: (players) => {
-          this.message = "Edited player succesfully"
+          this.message = "Updated player succesfully"
           this.selectedPlayer = players;
         },
         error: (errResp) => {
-          console.error('Error editing players', errResp);
+          console.error('Error updating players', errResp);
       }
     });
   }

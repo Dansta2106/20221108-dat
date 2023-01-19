@@ -1,7 +1,6 @@
 <!-- <p>player-search works!</p> -->
 
 <div class="card">
-
     <div class="card-header">
         <h2 class="card-title">Player Search</h2>
     </div>
@@ -13,10 +12,6 @@
                  <label>Name:</label>
                  <input [(ngModel)]="name" name="name" class="form-control">
              </div>
-             <!-- <div class="form-group">
-                 <label>To:</label>
-                 <input [(ngModel)]="to" name="to" class="form-control">
-             </div> -->
 
              <div class="form-group">
              <button
@@ -24,19 +19,7 @@
                  (click)="search()"
                  class="btn btn-default">
                  Search
-                 </button>
-            <!-- <button
-                 [disabled]="!name"
-                 (click)="delete()"
-                 class="btn btn-default">
-                 Delete
-                </button> -->             
-            <button
-                [disabled]="!name"
-                (click)="update()"
-                class="btn btn-default">
-                Update
-               </button>           
+            </button>
             </div>
         </form>
 
@@ -71,12 +54,23 @@
                 <td>{{ p.elo }}</td>
                 <td>
                     <button
+                        (click)="selectCreat(p)"
                         (click)="select(p)"
                         class="btn btn-info btn-sm"
                         style="min-width: 85px">
-                        Select
+                        Creat
                     </button>
+                    <br><br>
                     <button
+                    (click)="selectUpdate(p)"
+                    (click)="select(p)"
+                    class="btn btn-info btn-sm"
+                    style="min-width: 85px">
+                    Update
+                </button>
+                    <br><br>
+                    <button
+                        (click)="selectDelete(p)"
                         (click)="delete()"
                         class="btn btn-info btn-sm"
                         style="min-width: 85px">
@@ -89,15 +83,16 @@
 
 </div>
 
-<div class="card">
+<!-- <div class="card">
     <div class="card-body">
         <pre>{{ selectedPlayer | json }}</pre>
     </div>
-</div>
+</div> -->
 
-<div class="card" *ngIf="selectedPlayer">
+
+<div class="card" *ngIf="selectedPlayerCreat">
     <div class="card-header">
-      <h2 class="card-title">Player Add</h2>
+      <h2 class="card-title">Player Creat</h2>
     </div>
     <div class="card-body">
 
@@ -132,7 +127,7 @@
         </div>
 
         <div class="form-group">
-            <button (click)="save()" class="btn btn-default">Save</button>
+            <button (click)="save()" class="btn btn-default">Creat</button>
         </div>
 
     </form>
@@ -140,3 +135,57 @@
     </div>
   </div>
 
+  <div class="card" *ngIf="selectedPlayerUpdate">
+    <div class="card-header">
+      <h2 class="card-title">Player Update</h2>
+    </div>
+    <div class="card-body">
+
+      <div>
+          {{ message }}
+      </div>
+
+      <form>
+        <div class="form-group">
+            <label>Id</label>
+            <input [(ngModel)]="selectedPlayer!.id" name="id" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Name</label>
+            <input [(ngModel)]="selectedPlayer!.name" name="name" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Adresse</label>
+            <input [(ngModel)]="selectedPlayer!.address" name="address" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Citizenship</label>
+            <input [(ngModel)]="selectedPlayer!.citizenship" name="citizenship" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Elo</label>
+            <input [(ngModel)]="selectedPlayer!.elo" name="elo" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <button (click)="update()" class="btn btn-default">Save Update</button>
+        </div>
+
+    </form>
+
+    </div>
+  </div>
+
+
+
+  <div class="card" *ngIf="selectedPlayerDelete">
+    <div class="card-body">
+        <div>
+           {{ message }}
+        </div>
+    </div>
+</div>

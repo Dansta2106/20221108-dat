@@ -45,4 +45,14 @@ update(selectedPlayer: Player): Observable<Player> {
   return this.http.put<Player>(url +"/" + selectedPlayer.id, selectedPlayer, { headers });
 }
 
+delete(selectedPlayer: Player): Observable<Player> {
+  const url = 'http://localhost:3000/player';
+
+  const headers = new HttpHeaders()
+    .set('Accept', 'application/json');
+
+  return this.http.delete<Player>(url + "/"+ selectedPlayer.id)
+      // .subscribe(() => this.message = 'Delete successful');
+}
+
 }
