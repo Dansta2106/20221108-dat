@@ -692,14 +692,28 @@
       "event_name": "Concrete",
       "country": "Croatia",
       "plz": 17603
+    },
+    {
+      "id": "101342",
+      "city": "Graz",
+      "event_name": "Stadthalle",
+      "country": "Austria",
+      "plz": "9030"
+    },
+    {
+      "id": "10134290909",
+      "city": "Graz",
+      "event_name": "Stadthalle",
+      "country": "Austria",
+      "plz": "9030"
     }
   ],
   "player": [
     {
       "id": 13,
-      "name": "Casey Strosin",
+      "name": "Daniel Stangl",
       "address": "Port Horaciohaven6500 Kris Track",
-      "citizenship": "Greenland",
+      "citizenship": "Germany",
       "elo": 2493
     },
     {
@@ -1305,10 +1319,38 @@
       "elo": 2637
     },
     {
-      "id": "1200",
-      "name": "Casey Strosin",
+      "id": "130",
+      "name": "Barbara Kogler",
       "address": "Port Horaciohaven6500 Kris Track",
-      "citizenship": "Greenland",
+      "citizenship": "Austria",
+      "elo": 2493
+    },
+    {
+      "id": "Oyv3zmp",
+      "address": "",
+      "name": "",
+      "citizenship": "",
+      "elo": 0
+    },
+    {
+      "id": "Iivn7rE",
+      "address": "",
+      "name": "",
+      "citizenship": "",
+      "elo": 0
+    },
+    {
+      "id": "1333",
+      "name": "Barbara Kogler",
+      "address": "Port Horaciohaven6500 Kris Track",
+      "citizenship": "Austria",
+      "elo": 2493
+    },
+    {
+      "id": "1315123",
+      "name": "Daniel Stangl",
+      "address": "Port Horaciohaven6500 Kris Track",
+      "citizenship": "Germany",
       "elo": 2493
     }
   ]

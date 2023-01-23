@@ -87,6 +87,9 @@ export class PlayerSearchComponent implements OnInit {
       }
     });
 
+    this.selectedPlayerCreat = undefined;
+    this.search();
+
     await new Promise(resolve => setTimeout(resolve, 3000));
     this.IsPressed = false;
   }
@@ -105,7 +108,7 @@ export class PlayerSearchComponent implements OnInit {
             console.error('Error deleting player', errResp);
         }
       });
-      
+
       await new Promise(resolve => setTimeout(resolve, 3000));
       this.IsPressed = false;
 
@@ -129,7 +132,11 @@ this.IsPressed = true;
           console.error('Error updating players', errResp);
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 3000));
+
+    this.selectedPlayerUpdate = undefined;
+    this.search()
+
+    await new Promise(resolve => setTimeout(resolve, 5000));
     this.IsPressed = false;
   }
 }

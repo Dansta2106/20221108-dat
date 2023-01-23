@@ -34,6 +34,8 @@ export class LocationSearchComponent implements OnInit {
   async search(): Promise<void> {
     if (this.IsPressed == true)
     await new Promise(resolve => setTimeout(resolve, 3000));
+
+    this.IsPressed = false;
     
     this.locationService
       .find(this.country, this.city, this.event_name)
@@ -87,6 +89,9 @@ export class LocationSearchComponent implements OnInit {
       }
     });
 
+    this.selectedLocationAdd = undefined;
+    this.search();
+
     await new Promise(resolve => setTimeout(resolve, 5000));
     this.IsPressed = false;
     
@@ -109,6 +114,9 @@ export class LocationSearchComponent implements OnInit {
       }
     });
 
+    this.selectedLocationEdit = undefined;
+    this.search();
+
     await new Promise(resolve => setTimeout(resolve, 5000));
     this.IsPressed = false;
     
@@ -129,6 +137,7 @@ export class LocationSearchComponent implements OnInit {
       }
     });
 
+    this.selectedLocationAdd = undefined;
     await new Promise(resolve => setTimeout(resolve, 5000));
     this.IsPressed = false;
   }
