@@ -18,6 +18,8 @@ export class PlayerSearchComponent implements OnInit {
   selectedPlayerCreat: Player | undefined;
   selectedPlayerUpdate: Player | undefined;
 
+  basket: Record<number, boolean> = {};
+
 
   constructor(private playerService: PlayerService) { 
 

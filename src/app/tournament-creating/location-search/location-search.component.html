@@ -59,6 +59,12 @@
                 <td>{{l.city }}</td>
                 <td>{{l.country }}</td>
                 <td>
+
+                <app-location-card
+                    [item]="l"
+                    [(selected)]="basket[l.id]">
+                </app-location-card>
+                <br><br>
                     <button
                     (click)="selectAdd(l)"
                     (click)="select(l)"
@@ -94,6 +100,11 @@
 
 </div>
 
+<div class="card">
+    <div class="card-body">
+        <pre>{{ basket | json }}</pre>
+    </div>
+</div>
 
 <!-- <div class="card">
     <div class="card-body">

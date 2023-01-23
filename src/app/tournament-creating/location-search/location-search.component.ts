@@ -22,6 +22,8 @@ export class LocationSearchComponent implements OnInit {
   selectedLocationAdd: Location | undefined;
   selectedLocationEdit: Location | undefined;
 
+  basket: Record<number, boolean> = {};
+
   constructor(private http: HttpClient, private locationService: LocationService) { 
 
   }

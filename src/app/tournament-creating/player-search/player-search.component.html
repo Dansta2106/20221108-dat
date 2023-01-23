@@ -26,7 +26,7 @@
     </div>
 </div>
 
-
+<!-- --------------------Result  Table Anfang ------------------------------- -->
 <div class="card" *ngIf="players.length">
 
     <table class="table table-condensed">
@@ -53,6 +53,11 @@
                 <td>{{ p.citizenship }}</td>
                 <td>{{ p.elo }}</td>
                 <td>
+                    <app-player-card
+                        [item]="p"
+                        [(selected)]="basket[p.id]">
+                    </app-player-card>
+                    <br><br>
                     <button
                         (click)="selectCreat(p)"
                         (click)="select(p)"
@@ -84,6 +89,14 @@
     </table>
 
 </div>
+<!-- --------------------Result  Table Ende ------------------------------- -->
+
+<div class="card">
+    <div class="card-body">
+        <pre>{{ basket | json }}</pre>
+    </div>
+</div>
+
 
 <!-- <div class="card">
     <div class="card-body">
@@ -133,7 +146,7 @@
         </div>
 
         <div class="form-group">
-            <button (click)="save()" class="btn btn-default">Creat</button>
+            <button (click)="save()" class="btn btn-default">Create</button>
         </div>
 
     </form>

@@ -6,13 +6,17 @@ import { PlayerSearchComponent } from './player-search/player-search.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TOURNAMENT_CREATING_ROUTES } from './tournament-creating.routes';
+import { PlayerCardComponent } from './player-card/player-card.component';
+import { LocationCardComponent } from './location-card/location-card.component';
 
 
 
 @NgModule({
   declarations: [
   LocationSearchComponent,
-  PlayerSearchComponent
+  PlayerSearchComponent,
+  PlayerCardComponent,
+  LocationCardComponent
   ],
   imports: [
     CommonModule,
