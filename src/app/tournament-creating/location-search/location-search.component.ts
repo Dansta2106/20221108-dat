@@ -10,9 +10,8 @@ import { LocationService } from './location-search/location.service';
 })
 export class LocationSearchComponent implements OnInit {
 
-  IsUpdate = false;
-  IsCreate = false;
-  IsDelete = false;
+
+  IsPressed = false;
 
   message = "";
   event_name = "";
@@ -30,7 +29,10 @@ export class LocationSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  search(): void {
+  async search(): Promise<void> {
+    if (this.IsPressed == true)
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    
     this.locationService
       .find(this.country, this.city, this.event_name)
       .subscribe({
@@ -46,10 +48,6 @@ export class LocationSearchComponent implements OnInit {
   select(l: Location): void {
     const url = 
     this.selectedLocation = l;
-
-    this.IsUpdate = false;
-    this.IsCreate = false;
-    this.IsDelete = false;
   }
 
   selectAdd(l: Location): void {
@@ -70,14 +68,10 @@ export class LocationSearchComponent implements OnInit {
     this.selectedLocationEdit = undefined;
   }
 
-  save(): void {
+  async save(): Promise<void> {
     if (!this.selectedLocation) return;
 
-    this.IsUpdate = false;
-    this.IsCreate = true;
-    this.IsDelete = false;
-
-    
+    this.IsPressed = true;
 
     this.locationService
       .save(this.selectedLocation)
@@ -91,14 +85,15 @@ export class LocationSearchComponent implements OnInit {
       }
     });
 
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    this.IsPressed = false;
     
   }
-  update(): void {
+  async update(): Promise<void> {
     if (!this.selectedLocation) return;
 
-    this.IsUpdate = true;
-    this.IsCreate = false;
-    this.IsDelete = false;
+
+    this.IsPressed = true;
 
     this.locationService
       .update(this.selectedLocation)
@@ -111,13 +106,15 @@ export class LocationSearchComponent implements OnInit {
           console.error('Error editing locations', errResp);
       }
     });
+
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    this.IsPressed = false;
+    
   }
-  delete(): void {
+  async delete(): Promise<void> {
     if (!this.selectedLocation) return;
 
-    this.IsUpdate = false;
-    this.IsCreate = false;
-    this.IsDelete = true;
+    this.IsPressed = true;
 
     this.locationService
       .delete(this.selectedLocation)
@@ -129,5 +126,8 @@ export class LocationSearchComponent implements OnInit {
           console.error('Error editing locations', errResp);
       }
     });
+
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    this.IsPressed = false;
   }
 };

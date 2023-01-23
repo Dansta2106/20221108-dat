@@ -687,20 +687,6 @@
       "plz": "8010"
     },
     {
-      "id": "102",
-      "city": "Graz",
-      "event_name": "Stadthalle",
-      "country": "Austria",
-      "plz": "8020"
-    },
-    {
-      "id": "103",
-      "city": "Graz",
-      "event_name": "parsing",
-      "country": "Mauritania",
-      "plz": 59311
-    },
-    {
       "id": "3333",
       "city": "Lake Amara",
       "event_name": "Concrete",
@@ -717,25 +703,11 @@
       "elo": 2493
     },
     {
-      "id": 14,
-      "name": "Dan Ferry",
-      "address": "Lake Jalon19696 Ezra Mission",
-      "citizenship": "Cambodia",
-      "elo": 3230
-    },
-    {
       "id": 15,
       "name": "Miguel Cartwright",
       "address": "Conway37727 Kihn Coves",
       "citizenship": "Eritrea",
       "elo": 3277
-    },
-    {
-      "id": 16,
-      "name": "Freddie Goldner",
-      "address": "Pagacland416 Shannon Parks",
-      "citizenship": "Turkey",
-      "elo": 278
     },
     {
       "id": 17,
@@ -745,25 +717,11 @@
       "elo": 513
     },
     {
-      "id": 18,
-      "name": "Aaron Hamill",
-      "address": "East Elroychester3544 Harley Summit",
-      "citizenship": "Romania",
-      "elo": 2711
-    },
-    {
       "id": 19,
       "name": "Kathleen O'Reilly",
       "address": "Schulistburgh3006 Reilly Estates",
       "citizenship": "Democratic People's Republic of Korea",
       "elo": 2292
-    },
-    {
-      "id": 20,
-      "name": "Olga Yundt",
-      "address": "South Petrafort8199 Mertie Fields",
-      "citizenship": "Bouvet Island (Bouvetoya)",
-      "elo": 2499
     },
     {
       "id": 21,
@@ -1319,13 +1277,6 @@
       "elo": 101
     },
     {
-      "id": "100",
-      "name": "Daniel Stangl",
-      "address": "Hoffman Estates873 Keyshawn Cliff",
-      "citizenship": "Somalia",
-      "elo": 2632
-    },
-    {
       "id": "7888",
       "name": "Mitchell Barrows",
       "address": "Port Reymundo68565 Wiza Tunnel",
@@ -1352,6 +1303,13 @@
       "address": "North Emeraldbury9612 Hilpert Freeway",
       "citizenship": "Norfolk Island",
       "elo": 2637
+    },
+    {
+      "id": "1200",
+      "name": "Casey Strosin",
+      "address": "Port Horaciohaven6500 Kris Track",
+      "citizenship": "Greenland",
+      "elo": 2493
     }
   ]
 }

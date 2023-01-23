@@ -73,6 +73,7 @@
                         (click)="select(p)"
                         (click)="selectDelete()"
                         (click)="delete()"
+                        (click)="search()"
                         class="btn btn-info btn-sm"
                         style="min-width: 85px">
                         Delete
@@ -91,7 +92,7 @@
 </div> -->
 
 
-<div class="card" *ngIf="IsUpdate || IsCreate || IsDelete">
+<div class="card" *ngIf="IsPressed">
     <div class="card-body">
         <div>
            {{ message }}

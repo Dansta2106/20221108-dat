@@ -10,9 +10,7 @@ import { PlayerService } from './player-search/player.service';
 })
 export class PlayerSearchComponent implements OnInit {
 
-  IsDelete = false;
-  IsCreate = false;
-  IsUpdate = false;
+  IsPressed = false;
   message = "";
   name = "";
   players: Array<Player> = [];
@@ -28,7 +26,10 @@ export class PlayerSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  search(): void {
+  async search(): Promise<void> {
+    if (this.IsPressed == true)
+    await new Promise(resolve => setTimeout(resolve, 3000));
+
     this.playerService
       .find(this.name)
       .subscribe({
@@ -45,10 +46,6 @@ export class PlayerSearchComponent implements OnInit {
   select(p: Player): void {
     const url = 
     this.selectedPlayer = p;
-    this.IsDelete = false;
-    this.IsCreate = false;
-    this.IsUpdate = false;
-
   }
 
   selectCreat(p: Player): void {
@@ -70,13 +67,11 @@ export class PlayerSearchComponent implements OnInit {
 
 
 
-  save(): void {
+  async save(): Promise<void> {
 
     if (!this.selectedPlayer) return;
 
-    this.IsCreate = true;
-    this.IsUpdate = false;
-    this.IsDelete = false;
+    this.IsPressed = true;
 
     this.playerService
       .save(this.selectedPlayer)
@@ -89,14 +84,15 @@ export class PlayerSearchComponent implements OnInit {
           console.error('Error creating players', errResp);
       }
     });
+
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    this.IsPressed = false;
   }
 
-delete(): void {
+  async delete(): Promise<void> {
     if (!this.selectedPlayer) return;
 
-    this.IsCreate = false;
-    this.IsUpdate = false;
-    this.IsDelete = true;
+    this.IsPressed = true;
 
     this.playerService.delete(this.selectedPlayer)
         .subscribe({
@@ -107,17 +103,18 @@ delete(): void {
             console.error('Error deleting player', errResp);
         }
       });
-    
+      
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      this.IsPressed = false;
+
     }
 
 
 
-update(): void {
+  async update(): Promise<void> {
     if (!this.selectedPlayer) return;
 
-    this.IsCreate = false;
-    this.IsUpdate = true;
-    this.IsDelete = false;
+this.IsPressed = true;
 
     this.playerService
       .update(this.selectedPlayer)
@@ -130,5 +127,7 @@ update(): void {
           console.error('Error updating players', errResp);
       }
     });
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    this.IsPressed = false;
   }
 }
