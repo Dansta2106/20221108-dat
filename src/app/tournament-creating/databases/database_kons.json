@@ -1,13 +1,6 @@
 {
   "location": [
     {
-      "id": 2,
-      "city": "Wyattview",
-      "event_name": "virtual",
-      "country": "Chad",
-      "plz": 65207
-    },
-    {
       "id": 4,
       "city": "West Brook",
       "event_name": "Islands,",
@@ -708,13 +701,6 @@
       "plz": 59311
     },
     {
-      "id": "200",
-      "city": "Graz",
-      "event_name": "optical",
-      "country": "Austria",
-      "plz": "1080"
-    },
-    {
       "id": "3333",
       "city": "Lake Amara",
       "event_name": "Concrete",
@@ -723,34 +709,6 @@
     }
   ],
   "player": [
-    {
-      "id": 3,
-      "name": "Ruben Leffler V",
-      "address": "Port Aylinfort5001 Myrtice Port",
-      "citizenship": "Bosnia and Herzegovina",
-      "elo": 253
-    },
-    {
-      "id": 6,
-      "name": "Ms. Ismael Hoeger",
-      "address": "Henderson58262 Maurine Row",
-      "citizenship": "Ukraine",
-      "elo": 1765
-    },
-    {
-      "id": 11,
-      "name": "Martha Kautzer",
-      "address": "Lynchstad63650 Ryan Ports",
-      "citizenship": "Costa Rica",
-      "elo": 2007
-    },
-    {
-      "id": 12,
-      "name": "Marie Towne",
-      "address": "Donnaborough425 Lemke Roads",
-      "citizenship": "Moldova",
-      "elo": 1854
-    },
     {
       "id": 13,
       "name": "Casey Strosin",

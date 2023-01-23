@@ -10,6 +10,9 @@ import { PlayerService } from './player-search/player.service';
 })
 export class PlayerSearchComponent implements OnInit {
 
+  IsDelete = false;
+  IsCreate = false;
+  IsUpdate = false;
   message = "";
   name = "";
   players: Array<Player> = [];
@@ -42,6 +45,10 @@ export class PlayerSearchComponent implements OnInit {
   select(p: Player): void {
     const url = 
     this.selectedPlayer = p;
+    this.IsDelete = false;
+    this.IsCreate = false;
+    this.IsUpdate = false;
+
   }
 
   selectCreat(p: Player): void {
@@ -56,11 +63,20 @@ export class PlayerSearchComponent implements OnInit {
     this.selectedPlayerUpdate = p;
   }
 
+  selectDelete(): void {
+    this.selectedPlayerCreat = undefined;
+    this.selectedPlayerUpdate = undefined;
+  }
+
 
 
   save(): void {
 
     if (!this.selectedPlayer) return;
+
+    this.IsCreate = true;
+    this.IsUpdate = false;
+    this.IsDelete = false;
 
     this.playerService
       .save(this.selectedPlayer)
@@ -78,6 +94,10 @@ export class PlayerSearchComponent implements OnInit {
 delete(): void {
     if (!this.selectedPlayer) return;
 
+    this.IsCreate = false;
+    this.IsUpdate = false;
+    this.IsDelete = true;
+
     this.playerService.delete(this.selectedPlayer)
         .subscribe({
           next: (players) => {
@@ -94,6 +114,10 @@ delete(): void {
 
 update(): void {
     if (!this.selectedPlayer) return;
+
+    this.IsCreate = false;
+    this.IsUpdate = true;
+    this.IsDelete = false;
 
     this.playerService
       .update(this.selectedPlayer)

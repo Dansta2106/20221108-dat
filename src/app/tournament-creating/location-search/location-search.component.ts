@@ -9,6 +9,11 @@ import { LocationService } from './location-search/location.service';
   styleUrls: ['./location-search.component.css']
 })
 export class LocationSearchComponent implements OnInit {
+
+  IsUpdate = false;
+  IsCreate = false;
+  IsDelete = false;
+
   message = "";
   event_name = "";
   city= "";
@@ -41,12 +46,17 @@ export class LocationSearchComponent implements OnInit {
   select(l: Location): void {
     const url = 
     this.selectedLocation = l;
+
+    this.IsUpdate = false;
+    this.IsCreate = false;
+    this.IsDelete = false;
   }
 
   selectAdd(l: Location): void {
     const url =
     this.selectedLocationEdit = undefined;
     this.selectedLocationAdd = l;
+
   }
 
   selectEdit(l: Location): void {
@@ -55,8 +65,19 @@ export class LocationSearchComponent implements OnInit {
     this.selectedLocationEdit = l;
   }
 
+  selectDelete(): void {
+    this.selectedLocationAdd = undefined;
+    this.selectedLocationEdit = undefined;
+  }
+
   save(): void {
     if (!this.selectedLocation) return;
+
+    this.IsUpdate = false;
+    this.IsCreate = true;
+    this.IsDelete = false;
+
+    
 
     this.locationService
       .save(this.selectedLocation)
@@ -69,9 +90,15 @@ export class LocationSearchComponent implements OnInit {
           console.error('Error adding locations', errResp);
       }
     });
+
+    
   }
   update(): void {
     if (!this.selectedLocation) return;
+
+    this.IsUpdate = true;
+    this.IsCreate = false;
+    this.IsDelete = false;
 
     this.locationService
       .update(this.selectedLocation)
@@ -87,6 +114,10 @@ export class LocationSearchComponent implements OnInit {
   }
   delete(): void {
     if (!this.selectedLocation) return;
+
+    this.IsUpdate = false;
+    this.IsCreate = false;
+    this.IsDelete = true;
 
     this.locationService
       .delete(this.selectedLocation)
